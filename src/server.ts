@@ -15,4 +15,9 @@ app.get("/movies/:date", async(req, res) => {
     })
 })
 
+app.get("/base64/:date", async(req, res) => {
+    const image = await dateToPNG(req.params.date)
+    res.send(image)
+})
+
 app.listen(3000, () => console.log("3000."))
